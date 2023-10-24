@@ -1,11 +1,11 @@
 import { serve } from "https://deno.land/std@0.119.0/http/server.ts";
-import { readTextFile } from "https://deno.land/std@0.204.0/assert/mod.ts";
+import Deno from "https://deno.land/x/deno/mod.ts";
 
 async function handler(_req: Request): Promise<Response> {
   Math.random();
 
   // take a word from file wordlist
-  const wordlist = await readTextFile("./wordlist.txt");
+  const wordlist = await Deno.readTextFile("./wordlist.txt");
   console.log(wordlist);
   const words = wordlist.split("\n");
   console.log(words);
