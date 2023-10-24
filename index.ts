@@ -45,29 +45,29 @@ const similarity = async (word1: string, word2: string) => {
 }
 
 const responseBuilder = (guess: string, similarity: number) => {
+  const percentage = (similarity * 100).toFixed(2);
+
   if (similarity === 1) {
     return 'You found the word!';
   } else if (similarity >= 0.9) {
-    return `${similarity * 100}: You are very close!`;
+    return `${percentage}% : You are very close!`;
   } else if (similarity >= 0.8) {
-    return `${similarity * 100}: You are close!`;
+    return `${percentage}% : You are close!`;
   } else if (similarity >= 0.7) {
-    return `${similarity * 100}: You are almost there!`;
+    return `${percentage}% : You are almost there!`;
   } else if (similarity >= 0.6) {
-    return `${similarity * 100}: You are getting there!`;
+    return `${percentage}% : You are getting there!`;
   } else if (similarity >= 0.5) {
-    return `${similarity * 100}: You are on the right track!`;
+    return `${percentage}% : You are on the right track!`;
   } else if (similarity >= 0.4) {
-    return `${similarity * 100}: You are getting closer!`;
+    return `${percentage}% : You are getting closer!`;
   } else if (similarity >= 0.3) {
-    return `${similarity * 100}: You are far`;
+    return `${percentage}% : You are far`;
   } else if (similarity >= 0.2) {
-    return `${similarity * 100}: You are very far`;
+    return `${percentage}% : You are very far`;
   } else if (similarity >= 0.1) {
-    return `${similarity * 100}: You are so bad`;
+    return `${percentage}% : You are so bad`;
   } else if (similarity >= 0) {
-    return `${similarity * 100}: You are so bad I want to kill myself`;
+    return `${percentage}% : You are so bad I want to kill myself`;
   }
-
-  return response;
 }
