@@ -6,9 +6,11 @@ async function handler(_req: Request): Promise<Response> {
 
   // take a word from file wordlist
   const wordlist = await readTextFile("./wordlist.txt");
+  console.log(wordlist);
   const words = wordlist.split("\n");
+  console.log(words);
   const word = words[Math.floor(0.35 * words.length)];
-
+  console.log(word);
 
   try {
     const guess = await extractGuess(_req);
