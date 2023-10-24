@@ -1,6 +1,14 @@
 import { serve } from "https://deno.land/std@0.119.0/http/server.ts";
 
 async function handler(_req: Request): Promise<Response> {
+  Math.random();
+
+  // take a word from file wordlist
+  const wordlist = await Deno.readTextFile("./wordlist.txt");
+  const words = wordlist.split("\n");
+  const word = words[Math.floor(0.35 * words.length)];
+
+
   try {
     const guess = await extractGuess(_req);
     const simil = await similarity(guess, "chien");
